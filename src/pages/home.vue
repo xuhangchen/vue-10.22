@@ -3,8 +3,10 @@
         <el-container style="height: 100%;">
             <el-aside width="200px">
                 <el-row class="tac">
+                    <div style="width:100%;display: flex;align-items: center;justify-content: center;">
+                        <h5>Hello Vue</h5>
+                    </div>
                     <el-col :span="12">
-                        <div style="text-align: center;"><h5>Hello Vue</h5></div>
                         <el-menu
                             class="el-menu-vertical-demo"
                             router="true"
@@ -94,7 +96,11 @@
                 <el-main>
                     <router-view></router-view>
                 </el-main>
-                <el-footer>Footer</el-footer>
+                <el-footer>
+                    <div>
+                        Copyright © 2021 .All rights reserved.
+                    </div>
+                </el-footer>
             </el-container>
         </el-container>
     </div>
@@ -160,7 +166,12 @@ export default defineComponent({
 <style>
 .el-header,
 .el-footer {
-    background-color: #bbbbbb;
+    display: flex;
+    /*实现垂直居中*/
+    align-items: center;
+    /*实现水平居中*/
+    justify-content: center;
+    background-color: #f0f2f5;
     color: var(--el-text-color-primary);
     text-align: center;
     height: 30%;
