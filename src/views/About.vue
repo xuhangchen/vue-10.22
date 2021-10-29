@@ -4,7 +4,7 @@
     </div>
 
     <div>
-        {{ JSON.parse($route.query.bro!.toString()) }}
+        {{ $route.query.bro }}
     </div>
 </template>
 
