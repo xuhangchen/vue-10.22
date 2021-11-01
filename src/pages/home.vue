@@ -85,6 +85,10 @@
                                 <i class="el-icon-setting"></i>
                                 <span>综合练习</span>
                             </el-menu-item>
+                            <el-menu-item index="/upload">
+                                <i class="el-icon-upload"></i>
+                                <span>上传组件</span>
+                            </el-menu-item>
                         </el-menu>
                     </el-col>
                 </el-row>

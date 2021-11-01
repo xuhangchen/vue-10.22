@@ -9,6 +9,7 @@
     "start": "npm run serve"
   },
   "dependencies": {
+    "@antv/g2": "^4.1.32",
     "element-plus": "^1.1.0-beta.24",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"

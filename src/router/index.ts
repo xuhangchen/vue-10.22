@@ -8,6 +8,7 @@ import NestedPage from '../pages/router-practise/nested/rp-nested.vue';
 import NtParamsPage from '../pages/router-practise/nested/nested-params.vue';
 import NtNormalPage from '../pages/router-practise/nested/nested-normal.vue';
 import PracticePage from '../pages/practice/practice.vue';
+import UploadPage from '../pages/upload.vue';
 // import NtNormalPage from '../pages/router-practise/nested/nested-normal.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -39,6 +40,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/border',
         name: 'Border',
         component: BorderPage,
+    },
+    {
+        path: '/upload',
+        name: 'upload',
+        component: UploadPage,
     },
     {
         path: '/nested',
