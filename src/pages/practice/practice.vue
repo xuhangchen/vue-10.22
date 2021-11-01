@@ -11,10 +11,10 @@
         <el-table-column prop="date" label="Date" width="180" />
         <el-table-column prop="name" label="Name" width="180" />
         <el-table-column prop="address" label="Address" />
-        <el-table-column label="深蹲">
+        <el-table-column prop="深蹲" label="深蹲">
             <template #default="item">
                 <div>
-                    <div>{{ item.$index }}</div>
+                    <div>index: {{ item.$index }}</div>
                     <div v-if="!tableData[item.$index].isEdit">{{ tableData[item.$index].squat }}</div>
                     <div v-if="tableData[item.$index].isEdit">
                         <el-input-number
@@ -30,7 +30,7 @@
         <el-table-column>
             <template #default="item">
                 <div>
-                    <button @click="onItemClick(tableData[item.$index])">
+                    <button @click="onItemClick(tableData[item.$index], $event)">
                         {{ tableData[item.$index].isEdit ? '保存' : '编辑' }}
                     </button>
                 </div>
@@ -61,7 +61,11 @@ export default defineComponent({
             return index + 1;
         },
 
-        onItemClick(item: TableItem) {
+        onItemClick(item: TableItem, e: any) {
+            console.log('event', e);
+            // 因此它支持W3C的stopPropagation()方法
+            e.stopPropagation();
+
             if (item.isEdit) {
                 console.log(item.squat);
             }
@@ -90,8 +94,10 @@ export default defineComponent({
                     new TableItem('2016-05-03', '丁警官👮🏻', 'ShangHai', 220),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1),
+                    new TableItem('2016-05-03', '超人超', 'ShangHai', 180),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1),
+                    new TableItem('2016-05-03', '体能蒋', 'ShangHai', 2000),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1),
                     new TableItem('2016-05-03', '许弟弟', 'ShangHai', 1)
                 );
@@ -100,8 +106,6 @@ export default defineComponent({
 
         const tableRowClassName = ref((row: any) => {
             let style = '';
-            // console.log('row', row);
-            // console.log('rowIndex', row.rowIndex);
             if (tableData.value[row.rowIndex]) {
                 tableData.value[row.rowIndex].name === '超人超' ? (style = 'warning-row') : '';
                 tableData.value[row.rowIndex].name === '体能蒋' ? (style = 'success-row') : '';
@@ -115,10 +119,15 @@ export default defineComponent({
         console.log($route);
         console.log($router);
 
-        const onRowClick = (x: TableItem, y: any, z: any) => {
-            console.error('DATA', x, y, z);
+        const onRowClick = ref((x: TableItem, y: any, e: any) => {
+            console.error('DATA', x, y, e);
+            console.log(y);
+
+            if (y.property === '深蹲') {
+                return;
+            }
             $router.push({ path: '/about', query: { bro: JSON.stringify(x) } });
-        };
+        });
         return {
             tableData,
             getData,
