@@ -9,22 +9,18 @@ import NtParamsPage from '../pages/router-practise/nested/nested-params.vue';
 import NtNormalPage from '../pages/router-practise/nested/nested-normal.vue';
 import PracticePage from '../pages/practice/practice.vue';
 import UploadPage from '../pages/upload.vue';
-// import NtNormalPage from '../pages/router-practise/nested/nested-normal.vue';
+import VueXPage from '../pages/vuex/vuex.vue';
 
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/home',
         name: 'Home',
         component: CardList,
-        // children: [{ path: '/about', name: 'about', component: CardList }],
     },
     {
         path: '/about',
         name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+        component: () => import('../views/About.vue'),
     },
     {
         path: '/check',
@@ -45,6 +41,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/upload',
         name: 'upload',
         component: UploadPage,
+    },
+    {
+        path: '/vuex',
+        name: 'vuex',
+        component: VueXPage,
     },
     {
         path: '/nested',

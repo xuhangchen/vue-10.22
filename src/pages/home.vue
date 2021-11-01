@@ -89,6 +89,10 @@
                                 <i class="el-icon-upload"></i>
                                 <span>上传组件</span>
                             </el-menu-item>
+                            <el-menu-item index="/vuex">
+                                <i class="el-icon-upload"></i>
+                                <span>VueX</span>
+                            </el-menu-item>
                         </el-menu>
                     </el-col>
                 </el-row>

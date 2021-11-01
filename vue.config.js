@@ -1,4 +1,5 @@
 module.exports = {
+    runtimeCompiler: true,
     // 打包路径
     outputDir: 'dist',
     devServer: {
