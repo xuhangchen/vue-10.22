@@ -1,5 +1,6 @@
 <template>
-    <div>Login</div>
+    <div>container</div>
+    <router-view></router-view>
 </template>
 
 <script lang="ts">

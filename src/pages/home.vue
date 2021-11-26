@@ -9,8 +9,8 @@
                     <el-col :span="12">
                         <el-menu
                             class="el-menu-vertical-demo"
-                            router="true"
                             default-active="1"
+                            router="true"
                             @open="handleOpen"
                             @close="handleClose"
                         >
@@ -21,14 +21,28 @@
                                 </template>
 
                                 <el-menu-item-group title="基础组件 -> 分组一">
-                                    <el-menu-item index="about">
-                                        边框
+                                    <el-menu-item>
+                                        <router-link to="xxx">XXX</router-link>
                                     </el-menu-item>
+
                                     <el-menu-item index="home">
                                         <router-link to="/home">按钮</router-link>
                                     </el-menu-item>
+
                                     <el-menu-item index="about">
                                         <router-link to="/颜色">颜色</router-link>
+                                    </el-menu-item>
+
+                                    <el-menu-item>
+                                        边框1
+                                    </el-menu-item>
+
+                                    <el-menu-item index="about">
+                                        边框2
+                                    </el-menu-item>
+
+                                    <el-menu-item index="about">
+                                        边框3
                                     </el-menu-item>
                                 </el-menu-item-group>
 
@@ -44,10 +58,10 @@
                                 </el-sub-menu>
                             </el-sub-menu>
 
-                            <el-menu-item index="home">
+                            <el-menu-item index="router">
                                 <template #title>
                                     <i class="el-icon-menu"></i>
-                                    <span>{{ routeMenuList[0].title }}</span>
+                                    <span>路由</span>
                                 </template>
                             </el-menu-item>
 
@@ -57,22 +71,27 @@
                                     <span>路由练习</span>
                                 </template>
 
-                                <el-menu-item
+                                <!-- <el-menu-item
                                     v-for="menuItem in routeMenuList[0].subMenu"
                                     :key="menuItem.id"
                                     :index="menuItem.url"
                                 >
                                     <span>{{ menuItem.title }}</span>
-                                </el-menu-item>
+                                </el-menu-item> -->
 
                                 <el-sub-menu index="111">
                                     <template #title>
                                         嵌套路由
                                     </template>
                                     <el-menu-item index="/nested">普通路由-跳转Check</el-menu-item>
-                                    <el-menu-item index="/nested/params/9527">路由传送参</el-menu-item>
+
+                                    <el-menu-item index="/nested/getData?wd={123}">路由传送参 QueryParams</el-menu-item>
+                                    <el-menu-item index="/nested/getData/123/123/123">
+                                        路由传送参 Params 123
+                                    </el-menu-item>
+
                                     <el-menu-item :route="{ params: { q: 123 }, name: 'zczc', query: { 卧推: '123' } }">
-                                        路由传送参
+                                        路由传送参综合
                                     </el-menu-item>
                                 </el-sub-menu>
                             </el-sub-menu>
@@ -97,13 +116,16 @@
                     </el-col>
                 </el-row>
             </el-aside>
+
             <el-container style="height: 100%; ">
                 <el-header style="height: 60px;">
                     <div style="text-align: center;line-height:60px;height: 60px;">第一个超爷的项目</div>
                 </el-header>
+
                 <el-main>
                     <router-view></router-view>
                 </el-main>
+
                 <el-footer>
                     <div>
                         Copyright © 2021 .All rights reserved.
@@ -115,7 +137,7 @@
 </template>
 
 <script lang="ts">
-import { MenuItem, SubMenuItem } from '@/model/menu.model';
+import { Bin, MenuItem, SubMenuItem } from '@/model/menu.model';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -140,13 +162,13 @@ export default defineComponent({
             new SubMenuItem('2-3', '颜色', 'home'),
         ];
 
-        const routeMenuList = [
-            new MenuItem('路由', '2', [
-                new SubMenuItem('2-1', '边框', 'border'),
-                new SubMenuItem('2-2', '按钮', 'button'),
-                new SubMenuItem('2-3', '复选框', 'check'),
-            ]),
-        ];
+        // const routeMenuList = [
+        //     new MenuItem('路由', '2', [
+        //         new SubMenuItem('2-1', '边框', '/rp/border'),
+        //         new SubMenuItem('2-2', '按钮', '/rp/button'),
+        //         new SubMenuItem('2-3', '复选框', '/rp/check'),
+        //     ]),
+        // ];
 
         const goBack = () => {
             console.log('go back');
@@ -162,9 +184,9 @@ export default defineComponent({
         return {
             handleOpen,
             handleClose,
-            goBack,
             subList,
-            routeMenuList,
+            // routeMenuList,
+            goBack,
             onMenuClick,
         };
     },

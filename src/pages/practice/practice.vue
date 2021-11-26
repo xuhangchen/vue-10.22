@@ -1,5 +1,6 @@
 <template>
     <div>综合练习</div>
+
     <el-table
         height="85%"
         :data="tableData"
@@ -8,14 +9,18 @@
         :row-class-name="tableRowClassName"
     >
         <el-table-column type="index" :index="indexMethod" />
-        <el-table-column prop="date" label="Date" width="180" />
+
+        <el-table-column prop="date" label="日期" width="200" />
         <el-table-column prop="name" label="Name" width="180" />
         <el-table-column prop="address" label="Address" />
+
         <el-table-column prop="深蹲" label="深蹲">
             <template #default="item">
                 <div>
                     <div>index: {{ item.$index }}</div>
-                    <div v-if="!tableData[item.$index].isEdit">{{ tableData[item.$index].squat }}</div>
+
+                    <div v-if="!item.row.isEdit">{{ item.row.squat }}</div>
+
                     <div v-if="tableData[item.$index].isEdit">
                         <el-input-number
                             v-model="tableData[item.$index].squat"
@@ -27,28 +32,26 @@
                 </div>
             </template>
         </el-table-column>
+
         <el-table-column>
             <template #default="item">
                 <div>
                     <button @click="onItemClick(tableData[item.$index], $event)">
-                        {{ tableData[item.$index].isEdit ? '保存' : '编辑' }}
+                        {{ item.row.isEdit ? '保存' : '编辑' }}
                     </button>
                 </div>
             </template>
         </el-table-column>
+
         <el-table-column>
-            <template #default="item">
-                <div>
-                    {{ tableData[item.$index] }}
-                </div>
-            </template>
+            <template #default="item">{{ item.row }}</template>
         </el-table-column>
     </el-table>
 </template>
 
 <script lang="ts">
 import { TableItem } from '@/model/table.model';
-import { getCurrentInstance, Ref, ref } from 'vue';
+import { Ref, ref } from 'vue';
 import { defineComponent } from 'vue-demi';
 import { useRoute, useRouter } from 'vue-router';
 
@@ -88,7 +91,8 @@ export default defineComponent({
             setTimeout(() => {
                 tableData.value.push(
                     new TableItem('2016-05-03', '超人超', 'ShangHai', 180),
-                    new TableItem('2016-05-03', '体能蒋', 'ShangHai', 2000),
+                    new TableItem('2016-05-03', '体能蒋', 'ShangHai', 200),
+                    new TableItem('2016-05-03', '大老王', 'ShangHai', 200),
                     new TableItem('2016-05-03', '标杆海', 'ShangHai', 200),
                     new TableItem('2016-05-03', '社会杜', 'ShangHai', 160),
                     new TableItem('2016-05-03', '丁警官👮🏻', 'ShangHai', 220),
@@ -109,6 +113,7 @@ export default defineComponent({
             if (tableData.value[row.rowIndex]) {
                 tableData.value[row.rowIndex].name === '超人超' ? (style = 'warning-row') : '';
                 tableData.value[row.rowIndex].name === '体能蒋' ? (style = 'success-row') : '';
+                tableData.value[row.rowIndex].name === '大老王' ? (style = 'error-row') : '';
                 return style;
             }
             return style;
@@ -144,5 +149,9 @@ export default defineComponent({
 }
 .el-table .success-row {
     --el-table-tr-background-color: var(--el-color-success-lighter);
+}
+
+.el-table .error-row {
+    --el-table-tr-background-color: skyblue;
 }
 </style>

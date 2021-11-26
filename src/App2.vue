@@ -1,10 +1,4 @@
 <template>
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
-    <!-- <MyFirstComppnent></MyFirstComppnent>
-    <el-scrollbar height="400px">
-        <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
-    </el-scrollbar> -->
     <Home></Home>
 </template>
 
@@ -12,13 +6,13 @@
 import { defineComponent } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import MyFirstComppnent from './components/MyFirstComppnent.vue';
-import Home from './pages/home.vue';
+import Home from './pages/home-improve.vue';
 
 export default defineComponent({
     name: 'App',
     components: {
-        // HelloWorld,
         Home,
+        // HelloWorld,
         // MyFirstComppnent,
     },
 });

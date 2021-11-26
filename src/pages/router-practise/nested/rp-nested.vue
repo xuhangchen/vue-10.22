@@ -1,6 +1,6 @@
 <template>
     <div style="height: 100%;width: 100%;">
-        <h3>Nested - 嵌套路由</h3>
+        <h3 style="color: red;">Nested - 嵌套路由</h3>
         <router-view></router-view>
     </div>
 </template>

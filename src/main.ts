@@ -1,11 +1,13 @@
 import { createApp, defineComponent } from 'vue';
-import App from './App2.vue';
+import CY from './App2.vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
-import router from './router';
-import { Store } from 'element-plus/lib/components/table/src/store';
 import Vuex, { createStore } from 'vuex';
+import router from './router';
+
+import { Store } from 'element-plus/lib/components/table/src/store';
 import Vue from 'vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 // const CounterPage = defineComponent({
 //     // state
@@ -47,8 +49,16 @@ const store = createStore({
     },
 });
 
-const app = createApp(App);
+// 1. 创建App
+const app = createApp(CY);
+
+// 2. 引入组件库
 app.use(ElementPlus);
+
+// 3. 引入路由
 app.use(router);
+
+// 4. 引入VueX状态管理   --->  Flex Redux
 app.use(store);
+
 app.mount('#app');

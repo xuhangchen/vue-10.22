@@ -1,5 +1,5 @@
 <template>
-    <div>Login</div>
+    <div>我是xxx</div>
 </template>
 
 <script lang="ts">
