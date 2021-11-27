@@ -11,6 +11,7 @@
     "dependencies": {
         "@antv/g2": "^4.1.32",
         "element-plus": "^1.1.0-beta.24",
+        "mitt": "^3.0.0",
         "vue": "^3.0.0",
         "vue-router": "^4.0.0-0",
         "vuex": "^4.0.2"
@@ -41,7 +42,26 @@
         "parserOptions": {
             "ecmaVersion": 2020
         },
-        "rules": {}
+        "rules": {
+            "generator-star-spacing": "off",
+            "no-debugger": "off",
+            "no-tabs": "off",
+            "no-console": "off",
+            "no-irregular-whitespace": "off",
+            "no-unused-expressions": "off",
+            "no-empty": 0,
+            "no-empty-character-class": 0,
+            "no-empty-label": 0,
+            "no-empty-function": "off",
+            "@typescript-eslint/explicit-module-boundary-types": "off",
+            "@typescript-eslint/no-empty-function": [
+                "off"
+            ],
+            "no-unused-vars": "off",
+            "@typescript-eslint/no-unused-vars": [
+                "off"
+            ]
+        }
     },
     "browserslist": [
         "> 1%",

@@ -1,15 +1,18 @@
 <template>
-    <div id="nav">
-        <div>123</div>
-        <router-link to="/">Home</router-link>
-        |
-        <router-link to="/about">About</router-link>
-        |
-        <router-link to="/app2">APP</router-link>
-    </div>
-
-    <router-view />
+    <Home></Home>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Home from './pages/home/home-evolution.vue';
+
+export default defineComponent({
+    name: 'App',
+    components: {
+        Home,
+    },
+});
+</script>
 
 <style>
 #app {
@@ -18,18 +21,17 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    /* margin-top: 60px; */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
-#nav {
-    padding: 30px;
-}
-
-#nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-    color: #42b983;
+html body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 </style>

@@ -22,7 +22,6 @@ const routes: Array<RouteRecordRaw> = [
         path: '/basic',
         name: 'basic',
         component: Container,
-
         children: [
             {
                 path: 'button',
@@ -46,6 +45,16 @@ const routes: Array<RouteRecordRaw> = [
         path: '/route-practise',
         component: RouterPage,
     },
+    {
+        path: '/practise',
+        component: Container,
+        children: [
+            {
+                path: 'list',
+                component: PracticePage,
+            },
+        ],
+    },
     // { path: '/router', component: RouterPage },
     {
         path: '/xxx',
@@ -66,7 +75,7 @@ const routes: Array<RouteRecordRaw> = [
         component: CardList,
     },
     {
-        path: '/about',
+        path: '/memberDetail',
         name: 'About',
         component: () => import('../views/About.vue'),
     },

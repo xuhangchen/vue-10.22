@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "noUnusedParameters": false,
         "target": "es5",
         "module": "esnext",
         "strict": true,
@@ -15,7 +16,7 @@
         "paths": {
             "@/*": ["src/*"]
         },
-        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+        "lib": ["es2017", "esnext", "dom", "dom.iterable", "scripthost"]
     },
     "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "tests/**/*.ts", "tests/**/*.tsx"],
     "exclude": ["node_modules"]

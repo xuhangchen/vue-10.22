@@ -138,6 +138,8 @@
 
 <script lang="ts">
 import { Bin, MenuItem, SubMenuItem } from '@/model/menu.model';
+import router from '@/router';
+import mitt from 'mitt';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -146,7 +148,15 @@ export default defineComponent({
     },
 
     created() {
-        let router = this.$route;
+        // let router = this.$route;
+    },
+
+    mounted() {
+        console.log('home', '23');
+        console.log('home', mitt());
+        mitt().on('testEvent', () => {
+            console.log('成功了');
+        });
     },
 
     setup() {

@@ -1,5 +1,5 @@
 import { createApp, defineComponent } from 'vue';
-import CY from './App2.vue';
+import CY from './App.vue';
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
 import Vuex, { createStore } from 'vuex';
@@ -50,7 +50,15 @@ const store = createStore({
 });
 
 // 1. 创建App
-const app = createApp(CY);
+const app = createApp(CY, {
+    onTestEvent() {
+        console.log('嘿嘿嘿');
+    },
+});
+
+import { emitter } from './pages/practice/eventBus';
+
+app.config.globalProperties.$mybus = emitter;
 
 // 2. 引入组件库
 app.use(ElementPlus);
